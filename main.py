@@ -15,12 +15,12 @@ def main():
     while(1):
         cmd = vars.common_mem[vars.pc]
         if vars.common_mem[vars.pc] == "END":
+            print("cmd = ", "END", "binary = ", "111111")
             break
         execute_cmd(cmd)
         vars.pc += 1
-        if vars.ZF == 1:
-            break
-    print("_______________________")
+    print()
+    print("_____Конец Вычислений_______")
     print("A = ", vars.A)
     print("B = ", vars.B)
     print("C = ", vars.C)

@@ -12,7 +12,7 @@ def DCR_C(command):
     print("cmd = ", command, "binary = ", bin(code)[2:])
 
 def ADD_MARK_A_1(command):
-    vars.MARK_A = vars.MARK_A + 1
+    vars.MARK_A += 1
     code = 0b11110
     print("cmd = ", command, "binary = ", bin(code)[2:])
 
@@ -37,6 +37,8 @@ def CMP_A_B(command):
     result = vars.A - vars.B
     if result < 0:
         vars.SF = 1
+    elif result == 0:
+        vars.ZF = 2
     code = 0b100010
     print("cmd = ", command, "binary = ", bin(code)[2:])
 

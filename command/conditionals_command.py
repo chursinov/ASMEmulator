@@ -11,7 +11,7 @@ def JS_MARK_A(command):
     if vars.SF == 1:
         vars.pc = vars.MARK_A
         vars.SF = 0
-    code = 0b1101
+    code = 0b100101
     print("cmd = ", command, "binary = ", bin(code)[2:])
 
 def JS_MARK_C(command):
@@ -60,22 +60,22 @@ def JNZ_MARK_A(command):
     code = 0b10100
     print("cmd = ", command, "binary = ", bin(code)[2:])
 
-#JZ
-def JS_MARK_B(command):
+#f
+def JZ_MARK_B(command):
     if vars.ZF == 1:
         vars.pc = vars.MARK_B
         vars.ZF = 0
     code = 0b10101
     print("cmd = ", command, "binary = ", bin(code)[2:])
 
-def JS_MARK_A(command):
+def JZ_MARK_A(command):
     if vars.ZF == 1:
         vars.pc = vars.MARK_A
         vars.ZF = 0
     code = 0b10110
     print("cmd = ", command, "binary = ", bin(code)[2:])
 
-def JS_MARK_C(command):
+def JZ_MARK_C(command):
     if vars.ZF == 1:
         vars.pc = vars.MARK_C
         vars.ZF = 0
