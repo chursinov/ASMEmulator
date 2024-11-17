@@ -1,5 +1,4 @@
 from cmd_execution import execute_cmd
-import command.mov_commands as mov_commands
 import vars
 
 def main():
@@ -15,22 +14,23 @@ def main():
     while(1):
         cmd = vars.common_mem[vars.pc]
         if vars.common_mem[vars.pc] == "END":
-            print("cmd = ", "END", "binary = ", "111111")
+            print("cmd = ", "END")
             break
         execute_cmd(cmd)
         vars.pc += 1
     print()
     print("_____Конец Вычислений_______")
-    print("A = ", vars.A)
-    print("B = ", vars.B)
-    print("C = ", vars.C)
-    print("DP = ", vars.dp)
+    print("DP = ", vars.data_pointer)
     print("PC = ", vars.pc)
-    print("MARK_A = ", vars.MARK_A)
-    print("MARK B = ", vars.MARK_B)
-    print("MARK C = ", vars.MARK_C)
-    print("ZF = ", vars.ZF)
     print("SF = ", vars.SF)
+    print("EF = ", vars.EF)
+    print("stack =", vars.common_mem[512:520])
+    print("reverse stack = ", vars.common_mem[768:780])
+    print("reverse_stack_pointer = ", vars.reverse_stack_pointer)
+    print("com = ", vars.common_mem[0:10])
+    print("data = ", vars.common_mem[vars.DATA_BP:vars.DATA_BP + 10])
+    print("len =", len(vars.common_mem))
+
 
 
 if __name__ == "__main__":
