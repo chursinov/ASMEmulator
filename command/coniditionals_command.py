@@ -14,6 +14,20 @@ def JNE_RS(command):
     vars.reverse_stack_pointer -= 1
     print("cmd = ", command)
 
+def JS_RS(command):
+    if vars.SF == 1:
+        vars.pc = vars.common_mem[vars.REVERSE_STACK_BP + vars.reverse_stack_pointer]
+    vars.common_mem[vars.REVERSE_STACK_BP + vars.reverse_stack_pointer] = ''
+    vars.reverse_stack_pointer -= 1
+    print("cmd = ", command)
+
+def JE_RS(command):
+    if vars.SF == 1:
+        vars.pc = vars.common_mem[vars.REVERSE_STACK_BP + vars.reverse_stack_pointer]
+    vars.common_mem[vars.REVERSE_STACK_BP + vars.reverse_stack_pointer] = ''
+    vars.reverse_stack_pointer -= 1
+    print("cmd = ", command)
+
 
 def CHECK_STACK_NOT_EMPTY(command):
     if vars.stack_pointer == -1:

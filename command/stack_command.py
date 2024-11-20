@@ -22,10 +22,6 @@ def POP_STACK_IF_S(command):
     vars.stack_pointer -= 1
     print("cmd = ", command)
 
-def DROP_STACK(command):
-    vars.common_mem[vars.STACK_BP + vars.stack_pointer] = ''
-    vars.stack_pointer -= 1
-    print("cmd = ", command)
 
 # def count_len_of_stack(stack):
 #     count = 0
