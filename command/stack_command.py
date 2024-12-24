@@ -1,40 +1,29 @@
 import vars
 
-def PUSH_PC_REVSTACK(command):
-    vars.reverse_stack_pointer += 1
-    vars.common_mem[vars.REVERSE_STACK_BP + vars.reverse_stack_pointer] = vars.pc - 1
-    print("cmd = ", command)
+def PUSH_256(command):
+    vars.common_mem[vars.STACK_BP + vars.stack_pointer] = 256
+    vars.stack_pointer += 1
 
-def POP_STACK(command):
-    vars.common_mem[vars.DATA_BP + vars.data_pointer] = vars.common_mem[vars.STACK_BP + vars.stack_pointer]
-    #print(count_len_of_stack(stack))
-    #shift_elements_after_pop(vars.stack_pointer, vars.STACK_BP)
+def DUP(command):
+    vars.common_mem[vars.STACK_BP + vars.stack_pointer] = vars.common_mem[vars.STACK_BP + vars.stack_pointer - 1]
+    vars.stack_pointer += 1
+
+def READ_MEM(command):
+    addr = vars.common_mem[vars.STACK_BP + vars.stack_pointer - 1]
+    print("addr = ",addr)
+    print(vars.common_mem[addr])
+    vars.common_mem[vars.STACK_BP + vars.stack_pointer - 1] = vars.common_mem[int(addr)]
+
+def SWAP(command):
+    vars.common_mem[vars.STACK_BP + vars.stack_pointer - 1],vars.common_mem[vars.STACK_BP + vars.stack_pointer - 2] = vars.common_mem[vars.STACK_BP + vars.stack_pointer - 2],vars.common_mem[vars.STACK_BP + vars.stack_pointer - 1]
+
+def DROP(command):
     vars.common_mem[vars.STACK_BP + vars.stack_pointer] = ''
     vars.stack_pointer -= 1
-    print("cmd = ", command)
 
-def POP_STACK_IF_S(command):
-    if vars.SF == 1:
-        vars.common_mem[vars.DATA_BP + vars.data_pointer] = vars.common_mem[vars.STACK_BP + vars.stack_pointer]
-    #print(count_len_of_stack(stack))
-    #shift_elements_after_pop(vars.stack_pointer, vars.STACK_BP)
-    vars.common_mem[vars.STACK_BP + vars.stack_pointer] = ''
-    vars.stack_pointer -= 1
-    print("cmd = ", command)
-
-
-# def count_len_of_stack(stack):
-#     count = 0
-#     for element in stack:
-#         if element == '':
-#             break
-#         count += 1
-#     return count
-
-# def shift_elements_after_pop(pointer, base_pointer):
-#     vars.common_mem[pointer + base_pointer] = ''
-
-
-
-
-
+def ROT(command):
+    buf = vars.common_mem[vars.STACK_BP + vars.stack_pointer - 1]
+    for i in range(vars.STACK_BP + vars.stack_pointer - 2, vars.STACK_BP - 1, -1):
+        print(i)
+        vars.common_mem[i + 1] = vars.common_mem[i]
+    vars.common_mem[vars.STACK_BP] = buf

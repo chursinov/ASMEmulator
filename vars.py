@@ -7,43 +7,19 @@ cmd = ""
 
 #память данных
 DATA_BP = 256
-data_pointer = 0
 
-#прямой стэк - храним данные
+#стэк - храним данные
+#стэк - область данных начиная с [512]
 STACK_BP = 512
-stack_pointer = 8
+stack_pointer = 0
 
+ZF = 0
 
-#Обратный стек - храним указатели
-REVERSE_STACK_BP = 768
-reverse_stack_pointer = -1
-
-# class stack(object):
-
-#     def __init__(self, base_pointer, pointer) -> None:
-#         self.base_pointer = base_pointer
-#         self.pointer = pointer
-
-#     def inc_pointer(self):
-#         self.pointer += 1
-
-#     def dcr_pointer(self):
-#         self.pointer -= 1
-
-# direct_stack = stack(STACK_BP, stack_pointer)
-# reverse_stack = stack(REVERSE_STACK_BP, reverse_stack_pointer)
-
-#Empty Flag - флаг пустого стэка
-EF = 0
-#Sign Flag - флаг знака. Загорается при результате сравнения < 0
-SF = 0
-
-common_mem[512] = 5
-common_mem[513] = 7
-common_mem[514] = 6
-common_mem[515] = 3
-common_mem[516] = 18
-common_mem[517] = 9
-common_mem[518] = 4
-common_mem[519] = 0
-common_mem[520] = -5
+#Предзагружаем данные в память
+common_mem[256] = 6
+common_mem[257] = 1
+common_mem[258] = 13
+common_mem[259] = 7
+common_mem[260] = 8
+common_mem[261] = -2
+common_mem[262] = 7
