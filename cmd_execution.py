@@ -31,5 +31,27 @@ def execute_cmd(command):
             JS_20(command)
         case 'JNS_11':
             JNS_11(command)
+        case 0b1:
+            PUSH_256(command)
+        case 0b10:
+            READ_MEM(command)
+        case 0b11:
+            SWAP(command)
+        case 0b100:
+            DUP(command)
+        case 0b101:
+            ROT(command)
+        case 0b111:
+            CMP(command)
+        case 0b1000:
+            CMP_1(command)
+        case 0b1001:
+            INC_ST(command)
+        case 0b1101:
+            JS_20(command)
+        case 0b1011:
+            JNZ_11(command)
+        case 0b0110:
+            DROP(command)
         case _:
             raise Exception(f"unknown command {command}")
