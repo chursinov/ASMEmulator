@@ -10,8 +10,6 @@ def DUP(command):
 
 def READ_MEM(command):
     addr = vars.common_mem[vars.STACK_BP + vars.stack_pointer - 1]
-    print("addr = ",addr)
-    print(vars.common_mem[addr])
     vars.common_mem[vars.STACK_BP + vars.stack_pointer - 1] = vars.common_mem[int(addr)]
 
 def SWAP(command):
@@ -24,6 +22,5 @@ def DROP(command):
 def ROT(command):
     buf = vars.common_mem[vars.STACK_BP + vars.stack_pointer - 1]
     for i in range(vars.STACK_BP + vars.stack_pointer - 2, vars.STACK_BP - 1, -1):
-        print(i)
         vars.common_mem[i + 1] = vars.common_mem[i]
     vars.common_mem[vars.STACK_BP] = buf

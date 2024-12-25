@@ -42,3 +42,12 @@ def JZ_20(command):
 def JNZ_11(command):
     if vars.ZF == 0:
         vars.pc = 11 - 1
+
+def JNS_11(command):
+    if vars.SF == 0:
+        vars.pc = 11 - 1
+
+def JS_20(command):
+    if vars.SF == 1:
+        vars.pc = 20 - 1
+        vars.SF = 0

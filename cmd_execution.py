@@ -27,5 +27,9 @@ def execute_cmd(command):
             JZ_20(command)
         case 'JNZ_11':
             JNZ_11(command)
+        case 'JS_20':
+            JS_20(command)
+        case 'JNS_11':
+            JNS_11(command)
         case _:
             raise Exception(f"unknown command {command}")

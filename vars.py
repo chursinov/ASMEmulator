@@ -4,22 +4,27 @@ pc = 0
 # Общая память
 common_mem = [""] * 1024
 cmd = ""
-
-#память данных
+#память комманд = ячейки память с 0 до 255
+#память данных = ячейки памяти с 256 до 511
 DATA_BP = 256
 
 #стэк - храним данные
 #стэк - область данных начиная с [512]
+## верхний элемент стека = STACK_BP(Указатель базы стека) + stack_pointer
 STACK_BP = 512
 stack_pointer = 0
 
+# Флаги
+## Флаг нуля (Zero Flag) - загорается, когда result == 0
 ZF = 0
+## Флаг переноса (Carry Flag) - загорается, когда result < 0
+SF = 0
 
 #Предзагружаем данные в память
 common_mem[256] = 6
-common_mem[257] = 1
+common_mem[257] = 206
 common_mem[258] = 13
-common_mem[259] = 7
-common_mem[260] = 8
-common_mem[261] = -2
-common_mem[262] = 7
+common_mem[259] = -17
+common_mem[260] = 205
+common_mem[261] = 208
+common_mem[262] = 100
