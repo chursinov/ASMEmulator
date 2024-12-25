@@ -1,8 +1,9 @@
 import vars
 
-def PUSH_256(command):
-    vars.common_mem[vars.STACK_BP + vars.stack_pointer] = 256
+def PUSH(command):
+    vars.common_mem[vars.STACK_BP + vars.stack_pointer] = int(vars.common_mem[vars.pc + 1])
     vars.stack_pointer += 1
+    vars.pc += 1
 
 def DUP(command):
     vars.common_mem[vars.STACK_BP + vars.stack_pointer] = vars.common_mem[vars.STACK_BP + vars.stack_pointer - 1]
