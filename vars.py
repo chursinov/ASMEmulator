@@ -21,10 +21,9 @@ ZF = 0
 SF = 0
 
 #Предзагружаем данные в память
-common_mem[256] = 6
-common_mem[257] = 206
+common_mem[256] = 5
+common_mem[257] = 10
 common_mem[258] = 13
-common_mem[259] = -17
-common_mem[260] = 205
-common_mem[261] = 208
-common_mem[262] = 100
+common_mem[259] = 7
+common_mem[260] = 0
+common_mem[261] = -7
