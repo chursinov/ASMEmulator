@@ -13,7 +13,7 @@ def main():
     #print(f"com = {vars.common_mem[0:30]}")
     while(1):
         cmd = vars.common_mem[vars.pc]
-        print("pc = ", vars.pc, "cmd = ", cmd, "stack = ", vars.common_mem[512:512 + vars.stack_pointer], "ZF =", vars.ZF, "SF = ", vars.SF)
+        print("pc = ", vars.pc, "cmd = ", cmd, "stack = ", vars.common_mem[512:512 + vars.stack_pointer])
         if vars.common_mem[vars.pc] == 'END':
             break
         execute_cmd(cmd)
