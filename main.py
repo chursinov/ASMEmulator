@@ -2,17 +2,20 @@ from cmd_execution import execute_cmd
 import vars
 
 replacements_dict = {
-    'PUSH_256': 0b0001,
+    'PUSH': 0b0001,
     'READ_MEM': 0b0010,
     'SWAP': 0b0011,
     'DUP': 0b0100,
     'DROP':0b0110,
     'ROT': 0b0101,
     'CMP': 0b0111,
-    'CMP_1': 0b1000,
-    'INC_ST': 0b1001,
-    'JS_20': 0b1101,
-    'JNZ_11': 0b1011,
+    'INC_ST': 0b1000,
+    'DCR_ST':0b1001,
+    'JNS': 0b1010,
+    'JNZ': 0b1011,
+    'JZ': 0b1100,
+    'JS':0b1101,
+    'JMP':0b1110,
     'END': 0b0000
 }
 
